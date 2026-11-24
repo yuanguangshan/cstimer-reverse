@@ -1,0 +1,11 @@
+# 线上原始产物与美化版：体积大（634 KB / 925 KB），按 README §10 可自行生成
+raw/
+analysis/
+
+# 提取后的散件：完整源码已内嵌在 README.md §11，不重复入库
+src/
+
+# 运行产物
+node_modules/
+package-lock.json
+.DS_Store
