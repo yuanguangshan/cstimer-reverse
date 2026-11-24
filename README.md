@@ -177,7 +177,9 @@ GAN 协议套了一层 AES-128-CBC 混淆（`$.aes128` 在 1365 行，`createAes
 
 ## 7. 数据层
 
-- 全部 `localStorage`；大对象用 `LZString.compressToUTF16` 压缩；
+- **设置**存 `localStorage`；**session 数据**存 **IndexedDB**（库名 `cstimer`，object store `sessions`），
+  IndexedDB 不可用时回退 `localStorage`；老版本数据在 `onupgradeneeded` 时从 localStorage 迁移过去；
+- 大对象用 `LZString.compressToUTF16` 压缩；
 - 导出带 `sha256` 校验 + `LZString` 打包；
 - 「云同步」不是官方后端，而是让用户填自己的 URL（`gglData` / `wcaData` / `locData`）；
 - 打乱预生成进 `localStorage.cachedScr`，Worker 异步补货。
